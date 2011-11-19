@@ -1,0 +1,120 @@
+set nocompatible
+
+set modelines=0
+
+:set mouse=a
+:set history=1000
+
+" Enable filetype plugin
+filetype plugin indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+let mapleader = ","
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase "Ignore case when searching
+set smartcase
+set hlsearch "Highlight search things
+set gdefault
+set incsearch "Make search act like search in modern browsers
+set magic "Set magic on, for regular expressions
+set showmatch "Show matching bracets when text indicator is over them
+set mat=2 "How many tenths of a second to blink
+nnoremap <tab> %
+vnoremap <tab> %
+
+
+" syntax enable "Enable syntax hl
+
+
+" Tabs & Spaces {{{
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set smarttab
+
+" }}}
+
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set nobackup
+set nowb
+set noswapfile
+set relativenumber
+nnoremap <F2> :set relativenumber!<CR>
+
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indet
+
+" Leader {{{
+
+let mapleader = ","
+
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+nnoremap <leader>w <C-w>v<C-w>l
+
+
+" }}}
+
+" Window Navigation {{{
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" }}}
+
+" Remappings {{{
+nnoremap ; :
+" }}}
+
+" Rainbow Paren {{{
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+
+" }}}
+
+set t_Co=256 "Fix colors
+colorscheme molokai
+set guifont=Consolas:h12:cANSI
+syntax on
+
+

@@ -1,0 +1,5 @@
+filetype off
+call pathogen#runtime_prepend_subdirectories(expand('C:\Users\robot\My Dropbox\dotfiles\vim\vimfiles\bundle'))
+filetype plugin indent on
+
+source C:\Users\robot\My Dropbox\dotfiles\vim\vimrc
