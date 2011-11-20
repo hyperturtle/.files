@@ -26,7 +26,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 
-" syntax enable "Enable syntax hl
+
 
 
 " Tabs & Spaces {{{
@@ -58,6 +58,8 @@ set nowb
 set noswapfile
 set relativenumber
 nnoremap <F2> :set relativenumber!<CR>
+nnoremap <F3> :RainbowParenthesesToggle<cr>
+nnoremap <F4> :NERDTreeToggle<cr>
 
 set lbr
 set tw=500
@@ -70,8 +72,12 @@ set si "Smart indet
 let mapleader = ","
 
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>h :e $HOME<cr>
+nnoremap <leader>w <C-w>v<C-w>l 
+nnoremap <leader>v <C-w>s<C-w>j 
 
+noremap <leader>o o<Esc>
+noremap <leader>O O<Esc>
 
 " }}}
 
@@ -85,10 +91,13 @@ nnoremap <C-l> <C-w>l
 " }}}
 
 " Remappings {{{
+
 nnoremap ; :
+
 " }}}
 
 " Rainbow Paren {{{
+
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -114,7 +123,10 @@ let g:rbpt_max = 16
 
 set t_Co=256 "Fix colors
 colorscheme molokai
-set guifont=Consolas:h12:cANSI
+set guifont=Consolas:h10:cANSI
 syntax on
+syntax enable "Enable syntax hl
 
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
 

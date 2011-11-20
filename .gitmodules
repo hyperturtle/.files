@@ -7,3 +7,15 @@
 [submodule "vim/vimfiles/bundle/rainbow_parentheses"]
 	path = vim/vimfiles/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule "vim/vimfiles/bundle/surround"]
+	path = vim/vimfiles/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/vimfiles/bundle/repeat"]
+	path = vim/vimfiles/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/vimfiles/bundle/nerdtree"]
+	path = vim/vimfiles/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/vimfiles/bundle/vagrant"]
+	path = vim/vimfiles/bundle/vagrant
+	url = https://github.com/pavel-v-chernykh/vim-vagrant.git
