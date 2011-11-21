@@ -125,7 +125,7 @@ let g:rbpt_max = 16
 
 set t_Co=256 "Fix colors
 colorscheme molokai
-set guifont=Consolas:h10:cANSI
+set guifont=Consolas:h8:cANSI
 syntax on
 syntax enable "Enable syntax hl
 
