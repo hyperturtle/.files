@@ -5,11 +5,10 @@ set modelines=0
 :set mouse=a
 :set history=1000
 
-" Enable filetype plugin
-filetype plugin indent on
-
 " Set to auto read when a file is changed from the outside
 set autoread
+
+" Searching {{{
 
 let mapleader = ","
 nnoremap / /\v
@@ -25,9 +24,22 @@ set mat=2 "How many tenths of a second to blink
 nnoremap <tab> %
 vnoremap <tab> %
 
+" }}}
 
+" Make windows happy {{{
 
+set t_Co=256 "Fix colors
+colorscheme molokai
+set guifont=Consolas:h8:cANSI
+syntax on
+syntax enable "Enable syntax hl
 
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+
+set clipboard=unnamed
+
+" }}}
 
 " Tabs & Spaces {{{
 
@@ -38,6 +50,8 @@ set expandtab
 set smarttab
 
 " }}}
+
+" Aesthetics {{{
 
 set encoding=utf-8
 set scrolloff=3
@@ -66,6 +80,11 @@ set tw=500
 
 set ai "Auto indent
 set si "Smart indet
+
+" Enable filetype plugin
+filetype plugin indent on
+
+" }}}
 
 " Leader {{{
 
@@ -123,21 +142,10 @@ let g:rbpt_max = 16
 
 " }}}
 
-set t_Co=256 "Fix colors
-colorscheme molokai
-set guifont=Consolas:h8:cANSI
-syntax on
-syntax enable "Enable syntax hl
-
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-
-
-set foldmethod=marker
-
 " Folding {{{
 
 set foldlevelstart=0
+set foldmethod=marker
 
 " Space to toggle folds.
 nnoremap <Space> za
@@ -154,7 +162,7 @@ function! MyFoldText() " {{{
     let line = getline(v:foldstart)
 
     let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
+    let windowwidth = winwidth(0) - nucolwidth - 6
     let foldedlinecount = v:foldend - v:foldstart
 
     " expand tabs into spaces
@@ -162,8 +170,8 @@ function! MyFoldText() " {{{
     let line = substitute(line, '\t', onetab, 'g')
 
     let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - 3
+    return line . ' ...' . repeat(" ",fillcharcount) . foldedlinecount . ' '
 endfunction " }}}
 set foldtext=MyFoldText()
 
