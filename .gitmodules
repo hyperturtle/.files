@@ -1,6 +1,6 @@
 [submodule "vim/vimfiles/bundle/molokai"]
 	path = vim/vimfiles/bundle/molokai
-	url = https://github.com/tomasr/molokai.git
+	url = git://github.com/tomasr/molokai.git
 [submodule "vim/vimfiles/bundle/pathogen"]
 	path = vim/vimfiles/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
