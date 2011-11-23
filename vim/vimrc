@@ -26,7 +26,7 @@ set mat=2 "How many tenths of a second to blink
 
 set t_Co=256 "Fix colors
 colorscheme molokai
-set guifont=Meslo_LG_S_DZ:h9:cANSI
+set guifont=Meslo_LG_S_DZ:h8:cANSI
 
 syntax on
 syntax enable "Enable syntax hl
@@ -56,7 +56,8 @@ set showmode
 set showcmd
 set hidden
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,full
+
 set visualbell
 set cursorline
 set ttyfast
@@ -139,7 +140,7 @@ let g:rbpt_max = 16
 " Folding {{{
 
 set foldlevelstart=0
-set foldmethod=marker
+"set foldmethod=marker
 
 " Space to toggle folds.
 nnoremap <Space> za
@@ -205,3 +206,10 @@ set statusline+=)
 set statusline+=\ (line\ %l\/%L,\ col\ %03c)
 
 " }}}
+" File specific stuff {{{
+set foldmethod=marker
+" Coffee-Script {{{
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent
+" }}}
+" }}}
+"

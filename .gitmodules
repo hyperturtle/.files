@@ -19,3 +19,6 @@
 [submodule "vim/vimfiles/bundle/vagrant"]
 	path = vim/vimfiles/bundle/vagrant
 	url = https://github.com/pavel-v-chernykh/vim-vagrant.git
+[submodule "vim/vimfiles/bundle/vim-coffee-script"]
+	path = vim/vimfiles/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
