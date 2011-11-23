@@ -10,7 +10,6 @@ set autoread
 
 " Searching {{{
 
-let mapleader = ","
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase "Ignore case when searching
@@ -21,16 +20,14 @@ set incsearch "Make search act like search in modern browsers
 set magic "Set magic on, for regular expressions
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
-nnoremap <tab> %
-vnoremap <tab> %
 
 " }}}
-
 " Make windows happy {{{
 
 set t_Co=256 "Fix colors
 colorscheme molokai
-set guifont=Consolas:h8:cANSI
+set guifont=Meslo_LG_S_DZ:h9:cANSI
+
 syntax on
 syntax enable "Enable syntax hl
 
@@ -39,8 +36,8 @@ syntax enable "Enable syntax hl
 
 set clipboard=unnamed
 
+:cd $HOME
 " }}}
-
 " Tabs & Spaces {{{
 
 set tabstop=4
@@ -50,7 +47,6 @@ set expandtab
 set smarttab
 
 " }}}
-
 " Aesthetics {{{
 
 set encoding=utf-8
@@ -71,9 +67,6 @@ set nobackup
 set nowb
 set noswapfile
 set relativenumber
-nnoremap <F2> :set relativenumber!<CR>
-nnoremap <F3> :RainbowParenthesesToggle<cr>
-nnoremap <F4> :NERDTreeToggle<cr>
 
 set lbr
 set tw=500
@@ -85,10 +78,10 @@ set si "Smart indet
 filetype plugin indent on
 
 " }}}
-
 " Leader {{{
 
 let mapleader = ","
+let localleader = "\\"
 
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 nnoremap <leader>h :e $HOME<cr>
@@ -99,9 +92,8 @@ nnoremap <leader>r :so $MYVIMRC<cr>
 noremap <CR> o<Esc>k
 noremap <S-Enter> O<Esc>j
 
-nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e ~/My Dropbox/dotfiles/vim/vimrc<cr>
+nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e ~/dotfiles/vim/vimrc<cr>
 " }}}
-
 " Window Navigation {{{
 
 nnoremap <C-h> <C-w>h
@@ -110,13 +102,16 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " }}}
-
 " Remappings {{{
 
 nnoremap ; :
+nnoremap <F2> :set relativenumber!<CR>
+nnoremap <F3> :RainbowParenthesesToggle<cr>
+nnoremap <F4> :NERDTreeToggle<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
 " }}}
-
 " Rainbow Paren {{{
 
 let g:rbpt_colorpairs = [
@@ -141,7 +136,6 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 
 " }}}
-
 " Folding {{{
 
 set foldlevelstart=0
@@ -176,3 +170,38 @@ endfunction " }}}
 set foldtext=MyFoldText()
 
 "}}}
+" Status line {{{
+
+augroup ft_statuslinecolor
+    au!
+
+    au InsertEnter * hi StatusLine ctermfg=196 guifg=#FF3145
+    au InsertLeave * hi StatusLine ctermfg=130 guifg=#CD5907
+augroup END
+
+set statusline=%f    " Path.
+set statusline+=%m   " Modified flag.
+set statusline+=%r   " Readonly flag.
+set statusline+=%w   " Preview window flag.
+
+set statusline+=\    " Space.
+
+set statusline+=%#redbar#                " Highlight the following as a warning.
+"set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
+set statusline+=%*                           " Reset highlighting.
+
+set statusline+=%=   " Right align.
+
+" File format, encoding and type.  Ex: "(unix/utf-8/python)"
+set statusline+=(
+set statusline+=%{&ff}                        " Format (unix/DOS).
+set statusline+=/
+set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+set statusline+=/
+set statusline+=%{&ft}                        " Type (python).
+set statusline+=)
+
+" Line and column position and counts.
+set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+
+" }}}
