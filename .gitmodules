@@ -25,3 +25,6 @@
 [submodule "vim/vimfiles/bundle/vim-less"]
 	path = vim/vimfiles/bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
+[submodule "vim/vimfiles/bundle/vim-markdown"]
+	path = vim/vimfiles/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
